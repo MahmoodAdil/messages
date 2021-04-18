@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: message
+  name: message
+  namespace: message
+spec:
+  type: LoadBalancer
+  ports:
+  - name: "msg-service"
+    port: 8091
+    targetPort: 8091
+  selector:
+    app: message
+  
