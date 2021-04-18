@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: message-server
+  name: message-server
+  namespace: message
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: message-server
+  template:
+    metadata:
+      labels:
+        app: message-server
+    spec:
+      containers:
+      - image: adilmahmood/message-server:message-server
+        name: message-server
+        ports:
+        - containerPort: 8091
+          name: message-server
